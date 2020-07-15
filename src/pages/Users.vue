@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
-
     <!-- Table of users -->
     <section>
       <div class="container">
