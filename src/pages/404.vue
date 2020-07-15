@@ -10,7 +10,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 .wrapper-content {
 	min-width: 80vh;
 	display: flex;
@@ -18,5 +17,4 @@
 	justify-content: center;
 	text-align: center;
 }
-
 </style>

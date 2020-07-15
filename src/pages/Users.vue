@@ -63,50 +63,48 @@ export default {
             age: item.dob.age,
             gender: item.gender,
             picture: item.picture.thumbnail
-          };
-        });
-        this.users = getResponse;
+          }
+        })
+        this.users = getResponse
       })
       .catch(error => {
-        console.log(error);
-      });
+        console.log(error)
+      })
   },
   computed: {
     userSort() {
       return this.users
         .sort((a, b) => {
-          let mod = 1;
-          if (this.currentSortDir === "desc") mod = -1;
-          if (a[this.currentSort] < b[this.currentSort]) return -1 * mod;
-          if (a[this.currentSort] > b[this.currentSort]) return 1 * mod;
-          return 0;
+          let mod = 1
+          if (this.currentSortDir === "desc") mod = -1
+          if (a[this.currentSort] < b[this.currentSort]) return -1 * mod
+          if (a[this.currentSort] > b[this.currentSort]) return 1 * mod
+          return 0
         })
         .filter((row, index) => {
-          let start = (this.page.current - 1) * this.page.length;
-          let end = this.page.current * this.page.length;
-          if (index >= start && index < end) return true;
-        });
+          let start = (this.page.current - 1) * this.page.length
+          let end = this.page.current * this.page.length
+          if (index >= start && index < end) return true
+        })
     }
   },
   methods: {
     sort(e) {
       if (e === this.currentSort) {
-        console.log(e, this.currentSort);
-        this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
-        console.log(this.currentSortDir);
+        this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc"
       }
-      this.currentSort = e;
+      this.currentSort = e
     },
     //Paginatio
     prevPage() {
-      if (this.page.current > 1) this.page.current -= 1;
+      if (this.page.current > 1) this.page.current -= 1
     },
     nextPage() {
       if (this.page.current * this.page.length < this.users.length)
-        this.page.current += 1;
+        this.page.current += 1
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
